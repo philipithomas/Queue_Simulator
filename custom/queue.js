@@ -65,7 +65,17 @@ $("#simulate").click(function() {
 			else {
 				$("#rho" + c).text(Math.round( rho * 100) + "%");
 				$("#L" + c).text(Math.round( Lq * 100)/100);
-				$("#W" + c).text(Math.round( w * 100)/100 + " minutes");
+				min = Math.floor( w );
+				sec = Math.floor(w%1*60);
+				if (sec < 10 && sec>0) {
+					// make it pretty
+					sec = "0"+sec;
+				}
+				if (sec == 0) {
+					sec = "00";
+				}
+
+				$("#W" + c).text( min+ ":" +sec );
 				if ( w > goal_service ) {
 					$("#row" + c).addClass('warning');
 				}
