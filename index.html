@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Queue Simulator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A tool for understanding customer ">
+    <meta name="author" content="Philip I. Thomas">
+
+    <!-- Le styles -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="favicon.ico">
+  </head>
+
+  <body>
+
+
+    <div class="container"><div class="span3">
+          <div data-spy="affix" class="affix hidden-phone sidebar">
+            <div class="pad-nav" >
+             <div class="span3">
+             	<h2>Queue Simulator</h2>
+				<a href="#myModal" role="button" class="btn" data-toggle="modal">About</a>
+				 
+				<!-- Modal -->
+				<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				  <div class="modal-header">
+				    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				    <h3 id="myModalLabel">About</h3>
+				  </div>
+				  <div class="modal-body">
+				    <p>This system allows managers to make scheduling decisions based on anticipated customer load.
+				    	Based on input of number of customers expected in an hour and on how long, on average, it takes a cashier to 
+				    	check out a customer, it calculates data about </p>
+			    	<p> This data is applicable to situations where all customers form a single line for multiple registers. Queues are simulated as <a href="http://en.wikipedia.org/wiki/M/M/c_queue">M/M/c queues</a>, meaning that the model assumes that customer arrivals are a Poisson process, and that service times are exponentially distirbuted. It also assumes that customers are serve in the order they arrive. 
+			    	</p>
+			    	<p>Terms:</p>
+			    	<ul>
+			    		<li>Average Queue Length: The average number of customers in line, excluding those at the register.</li>
+			    		<li>Average System Time: How long, on average, it takes a customer from entering line to leaving the register.</li>
+				    		<li>Server Utilization: Percentage of the time a cashier is working.</li>
+
+				  </div>
+				  <div class="modal-footer">
+				    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+				  </div>
+				</div>
+
+				<!-- Form -->
+           </div>
+          </div>
+        </div>
+
+    	
+
+
+
+    	</div>
+    	<div class="span9">
+    	</div>
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>   
+	<script src="/assets/queue.js"></script>
+
+  </body>
+</html>
