@@ -5,7 +5,7 @@ layout: nil
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Queue Simulator</title>
+    <title>Cashier Queue Simulator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A tool for understanding customer ">
     <meta name="author" content="Philip I. Thomas">
@@ -28,17 +28,18 @@ layout: nil
     <div class="container">
     	<div class="row">
 	    	<div class="span3">
-	            <div class="pad-nav" >
-	             	<h2>Queue Simulator</h2>
+	    		<div id="sidebar">
+	            <div class="well"  >
+	             	<h3>Cashier Queue Simulator</h3>
 					 
 					
 					<!-- Form -->
 					<div>Average Customers per Hour:</div>
-					<input type="text"  id="arrival_input" class="span3" value="40" />
+					<input type="text"  id="arrival_input" value="60" />
 					<div>Average Cashier Service Time (Minutes):</div>
-					<input type="text"  id="service_input" class="span3" value="3.5" />
+					<input type="text"  id="service_input"  value="3.5" />
 					<div>Goal Customer Checkout Time (Minutes):</div>
-					<input type="text"  id="goal_service" class="span3" value="5" />
+					<input type="text"  id="goal_service" value="5" />
 					<div class="btn btn-block btn-primary"  id="simulate">Simulate</div>
 					<div href="#myModal" role="button" class="btn btn-block btn-info" data-toggle="modal" >About</div>
 					<div class="btn  btn-block"  id="reset">Reset</div>
@@ -59,11 +60,12 @@ layout: nil
 
 
 	           </div><!-- pad nav-->
+	       </div>
 	   </div> <!-- end span3 -->
 
 	   <div class="span9">
 	   	<div id="output" class="hide">
-	   		<div class="page-header"><h2>Simulation Results<span id="rec_outer" class="hidden">: <span id="recommendation"></span> Cashiers Recommended</span></h2><small><span id="arrival_display"></span> customers per hour with <span id="service_display"></span> minute service</small></div>
+	   		<div class=""><h2>Simulation Results<span id="rec_outer" class="hidden">: <span id="recommendation"></span> Cashiers Recommended</span></h2><small><span id="arrival_display"></span> customers per hour with <span id="service_display"></span> minute service</small></div>
 	   	
 	   		<table class="table table-bordered table-hover">
               <thead>
@@ -72,6 +74,7 @@ layout: nil
                   <th>Average Queue Length</th>
                   <th>Average Checkout Time</th>
                   <th>Cashier Utilization</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
