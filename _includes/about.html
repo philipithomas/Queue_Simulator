@@ -1,0 +1,14 @@
+<p>This program allows managers to make scheduling decisions about how many cashiers/servers to staff based on anticipated customer load. 
+Based on input of number of customers expected in an hour and on how long, on average, it takes a cashier to 
+check out a customer, and the maximum time you want a customer to spend from when they enter the line to when they have finished at the register, the application recommends how many cashiers to staff.  </p>
+<p> This data is applicable to situations where all customers form a single line for multiple registers/servers. Queues are simulated as <a href="http://en.wikipedia.org/wiki/M/M/c_queue">M/M/c queues</a>, meaning that the model assumes that customer arrivals are a Poisson process, and that service times are exponentially distributed. It also assumes that customers are served in the order they arrive. 
+</p>
+<p>Terms:</p>
+<ul>
+	<li>Average customers per hour: How many people are anticipated to make a purchase during the hour.</li>
+	<li>Average Cashier Service Time: How long it takes a cashier to check somebody out.</li>
+	<li>Goal Customer Order Time: The goal time it takes for a customer to finish checking out after they enter the line. </li>
+	<li>Average Queue Length: The average number of customers in line, excluding those at the register.</li>
+	<li>Average Checkout Time: How long, on average, it takes a customer from entering line to leaving the register.</li>
+	<li>Cashier Utilization: Percentage of the time a cashier is working.</li>
+</ul>

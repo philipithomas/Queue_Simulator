@@ -1,3 +1,6 @@
+---
+layout: nil
+---
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,7 +36,7 @@
 					<div>Average Customers per Hour:</div>
 					<input type="text"  id="arrival_input" class="span3" value="40" />
 					<div>Average Cashier Service Time (Minutes):</div>
-					<input type="text"  id="service_input" class="span3" value="3" />
+					<input type="text"  id="service_input" class="span3" value="3.5" />
 					<div>Goal Customer Checkout Time (Minutes):</div>
 					<input type="text"  id="goal_service" class="span3" value="5" />
 					<div class="btn btn-block btn-primary"  id="simulate">Simulate</div>
@@ -45,19 +48,8 @@
 					    <h3 id="myModalLabel">About</h3>
 					  </div>
 					  <div class="modal-body">
-					    <p>This program allows managers to make scheduling decisions about how many cashiers/servers to staff based on anticipated customer load.
-					    	Based on input of number of customers expected in an hour and on how long, on average, it takes a cashier to 
-					    	check out a customer, and the maximum time you want a customer to spend from when they enter the line to when they have finished at the register, the application recommends how many cashiers to staff.  </p>
-				    	<p> This data is applicable to situations where all customers form a single line for multiple registers. Queues are simulated as <a href="http://en.wikipedia.org/wiki/M/M/c_queue">M/M/c queues</a>, meaning that the model assumes that customer arrivals are a Poisson process, and that service times are exponentially distirbuted. It also assumes that customers are serve in the order they arrive. 
-				    	</p>
-				    	<p>Terms:</p>
-				    	<ul>
-				    		<li>Average customers per hour: How many people are anticipated to make a purchase during the hour.</li>
-				    		<li>Average Cashier Service Time: How long it takes a cashier to check somebody out.</li>
-				    		<li>Goal Customer Order Time: The goal time it takes for a customer to finish checking out after they enter the line. </li>
-				    		<li>Average Queue Length: The average number of customers in line, excluding those at the register.</li>
-				    		<li>Average Checkout Time: How long, on average, it takes a customer from entering line to leaving the register.</li>
-					    		<li>Cashier Utilization: Percentage of the time a cashier is working.</li>
+					   
+         					 {% include about.html %}
 
 					  </div>
 					  <div class="modal-footer">
@@ -83,119 +75,22 @@
                 </tr>
               </thead>
               <tbody>
-		      <tr id="row1"><td>1</td><td><div id="L1"></div></td><td><div id="W1"></div></td><td><div id="rho1"></div></td><td><a href="#dump1" role="button" class="btn" data-toggle="modal">Data</a>
-	<div id="dump1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-header">
+		     {% for i in (1..8) %}
+		     <tr id="row{{i}}"><td>{{i}}</td><td><div id="L{{i}}"></div></td><td><div id="W{{i}}"></div></td><td><div id="rho{{i}}"></div></td><td><a href="#dump{{i}}" role="button" class="btn" data-toggle="modal">Data</a>
+	<div id="dump{{i}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-	    <h3 id="myModalLabel">Data for 1 Servers</h3>
-	  </div>
-	  <div class="modal-body" id="dumpbody1">
-		<div id="dumpbody1"></div>
-	  
+	    <h3 id="myModalLabel">Data for {{i}} Servers</h3>
+	  </div>
+	  <div class="modal-body" id="dumpbody{{i}}">
+		<div id="dumpbody{{i}}"></div>
+	  
 	</div>
-	  <div class="modal-footer">
-	    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-	  </div>
+	  <div class="modal-footer">
+	    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+	  </div>
 	</div></td></tr>
-<tr id="row2"><td>2</td><td><div id="L2"></div></td><td><div id="W2"></div></td><td><div id="rho2"></div></td><td><a href="#dump2" role="button" class="btn" data-toggle="modal">Data</a>
-	<div id="dump2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-	    <h3 id="myModalLabel">Data for 2 Servers</h3>
-	  </div>
-	  <div class="modal-body" id="dumpbody2">
-		<div id="dumpbody2"></div>
-	  
-	</div>
-	  <div class="modal-footer">
-	    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-	  </div>
-	</div></td></tr>
-<tr id="row3"><td>3</td><td><div id="L3"></div></td><td><div id="W3"></div></td><td><div id="rho3"></div></td><td><a href="#dump3" role="button" class="btn" data-toggle="modal">Data</a>
-	<div id="dump3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-	    <h3 id="myModalLabel">Data for 3 Servers</h3>
-	  </div>
-	  <div class="modal-body" id="dumpbody3">
-		<div id="dumpbody3"></div>
-	  
-	</div>
-	  <div class="modal-footer">
-	    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-	  </div>
-	</div></td></tr>
-<tr id="row4"><td>4</td><td><div id="L4"></div></td><td><div id="W4"></div></td><td><div id="rho4"></div></td><td><a href="#dump4" role="button" class="btn" data-toggle="modal">Data</a>
-	<div id="dump4" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-	    <h3 id="myModalLabel">Data for 4 Servers</h3>
-	  </div>
-	  <div class="modal-body" id="dumpbody4">
-		<div id="dumpbody4"></div>
-	  
-	</div>
-	  <div class="modal-footer">
-	    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-	  </div>
-	</div></td></tr>
-<tr id="row5"><td>5</td><td><div id="L5"></div></td><td><div id="W5"></div></td><td><div id="rho5"></div></td><td><a href="#dump5" role="button" class="btn" data-toggle="modal">Data</a>
-	<div id="dump5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-	    <h3 id="myModalLabel">Data for 5 Servers</h3>
-	  </div>
-	  <div class="modal-body" id="dumpbody5">
-		<div id="dumpbody5"></div>
-	  
-	</div>
-	  <div class="modal-footer">
-	    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-	  </div>
-	</div></td></tr>
-<tr id="row6"><td>6</td><td><div id="L6"></div></td><td><div id="W6"></div></td><td><div id="rho6"></div></td><td><a href="#dump6" role="button" class="btn" data-toggle="modal">Data</a>
-	<div id="dump6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-	    <h3 id="myModalLabel">Data for 6 Servers</h3>
-	  </div>
-	  <div class="modal-body" id="dumpbody6">
-		<div id="dumpbody6"></div>
-	  
-	</div>
-	  <div class="modal-footer">
-	    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-	  </div>
-	</div></td></tr>
-<tr id="row7"><td>7</td><td><div id="L7"></div></td><td><div id="W7"></div></td><td><div id="rho7"></div></td><td><a href="#dump7" role="button" class="btn" data-toggle="modal">Data</a>
-	<div id="dump7" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-	    <h3 id="myModalLabel">Data for 7 Servers</h3>
-	  </div>
-	  <div class="modal-body" id="dumpbody7">
-		<div id="dumpbody7"></div>
-	  
-	</div>
-	  <div class="modal-footer">
-	    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-	  </div>
-	</div></td></tr>
-<tr id="row8"><td>8</td><td><div id="L8"></div></td><td><div id="W8"></div></td><td><div id="rho8"></div></td><td><a href="#dump8" role="button" class="btn" data-toggle="modal">Data</a>
-	<div id="dump8" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-	    <h3 id="myModalLabel">Data for 8 Servers</h3>
-	  </div>
-	  <div class="modal-body" id="dumpbody8">
-		<div id="dumpbody8"></div>
-	  
-	</div>
-	  <div class="modal-footer">
-	    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-	  </div>
-	</div></td></tr>
-
+		     {% endfor %}
               </tbody>
             </table>	   		
 

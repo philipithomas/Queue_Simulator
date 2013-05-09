@@ -61,6 +61,8 @@ $("#simulate").click(function() {
 				$("#rho" + c).text('');
 				$("#L" + c).text('');
 				$("#W" + c).text('');
+				$("#dumpbody"+c).html("Customers arrive faster than they may be served, so statistics are available. The line is always growing. ");
+
 			}
 			else {
 				$("#rho" + c).html(Math.round( rho * 100) + "%");
