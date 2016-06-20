@@ -44,7 +44,6 @@ $("#simulate").click(function() {
 			// init
 			L = c * rho;
 			L = L + Math.pow(c*rho, (c+1)) * Pnaught / (c * factorial(c) * Math.pow(1-rho,2));
-			L = L + rho * Plinf / (1-rho);
 			// L complete
 
 			w = L / lambda;
